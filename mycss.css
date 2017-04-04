@@ -1,0 +1,20 @@
+body{
+	background-image: url(images/goku.jpg);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	font-size: 20px;
+}
+h1{
+	color: blue;
+	text-align: center;
+}
+ul{
+	list-style: none;
+}
+
+li{
+	margin: 10px;
+}
+.enterbutton{
+	margin-left :50px;
+}
