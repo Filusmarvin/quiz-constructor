@@ -5,25 +5,20 @@
 	<link rel="stylesheet" href="./mycss.css"> </link>
 </head>
 <body>
-<div class="handlebars-demo"></div>
+<div class="test"></div>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
 <script id="quiz" type="text/x-handlebars-template">
       <div class="entry">
         <h1>{{title}}</h1>
-        <p class="question">
-			Question: {{question}}
-        </p>
-        <form> 
-        	<ul>
-        		<li><input type="radio" name="answer" value="1"> {{choiceOne}} </li>
-        		<li><input type="radio" name="answer" value="2">{{choicetwo}}</li>
-        		<li><input type="radio" name="answer" value="3">{{choiceThree}}</li>
-        		<li><input type="radio" name="answer" value="4">{{choiceFour}}</li>
-        	</ul>
-        	<input class="enterbutton" type="submit" name="submit" value="enter" onclick="submit">
-        </form>
+        <p class="question"> Question: {{question}}</p>
+        <ul>
+        	{{#each choices}}
+        	<li>{{this}}</li>
+       		{{/each}}
+       	</ul>
+        <p class="answer"> </p>
       </div>
     </script>
 

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Questions</title>
+	<link rel="stylesheet" href="Css.css"> </link>
+</head>
+<body>
+
+<div class="insert"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
+<script id ="questions" type="text/x-handlebars-template">
+	<div class ="entry">
+		<p >{{question}}</p>
+		<ul>
+			{{#each choices}}
+			<li>{{this}}</li>
+			{{/each}}
+		</ul>
+		<span class="results"></span>
+	</div>
+</script>
+<script src="test.js"></script>
+	
+
+</body>
+</html>
