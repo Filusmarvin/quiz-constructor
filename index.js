@@ -1,10 +1,37 @@
+let urlUno = "https://opentdb.com/api.php?amount=5&category=31&difficulty=medium&type=multiple"
+let urlDos = "https://opentdb.com/api.php?amount=5&category=31&difficulty=medium&type=boolean"
 
-// var source   = document.querySelector("#quiz").innerHTML;
-//     var template = Handlebars.compile(source);
-//     var context = {title: "Javascript 101", question:""};
-//     var html    = template(context);
-//     var destination = document.querySelector('.test');
-//     destination.innerHTML = html;
+function getData() {
+  return fetch(urlUno)
+  .then(response => response.json())
+}
+function getDataTwo() {
+  return fetch(urlDos)
+  .then(response => response.json())
+}
+
+function quesInfo (ques) {
+  this.question = ques.question;
+    console.log(this.question);
+  this.correctAnswers = ques.correct_answer;
+    console.log(this.correctAnswers);
+  this.incorrectAnswers = ques.incorrect_answers;
+    console.log(this.incorrectAnswers);
+return new quiz(question, correctAnswers, incorrectAnswers)
+console.log(quiz(question, correctAnswers, incorrectAnswers))
+}
+
+getData().then(jsonData =>jsonData.results)
+.then(array => array.map(quesInfo))
+.then(quiz => quiz.forEach(pickles => pickles.showInfo()))
+
+console.log(getDataTwo().then(jsonData =>jsonData.results[0]))
+// .then(array => array.map(quesInfo))
+// .then(quiz => quiz.forEach(pickles => pickles.showInfo()))
+
+function multipleChoice(){
+
+}
 
 li ="";
 correctAnswer = "";
@@ -20,35 +47,24 @@ function quiz (question, rightAnswer, choices){
   			let correctAnswer = li.parentElement.nextElementSibling;
   		 if (li.textContent == this.rightAnswer){
   			correctAnswer.textContent = "Correct";
-  		} 
+  		}
   		else{
   			correctAnswer.textContent = "Incorrect";
-  			console.log("What the FUDGE!")
-  			console.log(li.textContent.length == this.rightAnswer.length)
-  		 	console.log(this.rightAnswer == li.textContent)
   		}
   	}
 
-	this.showInfo =function (){
-		let source   = document.querySelector("#quiz").innerHTML;
+	this.showInfo = function (){
+			let source   = document.querySelector("#quiz").innerHTML;
    	 	let template = Handlebars.compile(source);
-  	 	let html    = template(this);
-  	  	document.querySelector(".test").innerHTML= html;
+  	 	let html   	 = template(this);
+			document.querySelector('.test').insertAdjacentHTML('beforeend', html);
   	  document.querySelector('.test div:last-of-type ul').addEventListener('click', this.answer.bind(this));
 	}
 
-  		
-  	}
-  
+}
+function username(){
 
-
-
-
-
-let question1 = new quiz('To write JS what tags would you need?', "script" , ['title' , 'head' , 'li' , "script"]);
-quiz()
-console.log(question1);
-question1.showInfo()
-console.log(li)
-console.log(this.rightAnswer)
-console.log()
+}
+// var q1 = new quiz('To write JS what tags would you need?', "script" , ['title' , 'head' , 'li' , "script"]);
+// var q2 = new quiz("to do this assignment what do you need?","knowledge", ['gratitude', 'magnitude', 'aptitude', 'knowledge']);
+// [q1, q2 ].forEach(question => question.showInfo());

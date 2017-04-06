@@ -2,11 +2,13 @@
 <html>
 <head>
 	<title>Quiz</title>
-	<link rel="stylesheet" href="./mycss.css"> </link>
+	<link rel="stylesheet" href="./mycss.css">
 </head>
 <body>
+<form>
+	Username <input type="name" placeholder="Username" value="">
+</form>
 <div class="test"></div>
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
 <script id="quiz" type="text/x-handlebars-template">
@@ -14,11 +16,13 @@
         <h1>{{title}}</h1>
         <p class="question"> Question: {{question}}</p>
         <ul>
+					<li>{{rightAnswer}}</li>
         	{{#each choices}}
         	<li>{{this}}</li>
        		{{/each}}
        	</ul>
         <p class="answer"> </p>
+				<p class="username"> </p>
       </div>
     </script>
 
