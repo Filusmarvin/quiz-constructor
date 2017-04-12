@@ -1,21 +1,20 @@
 // Creat an multiple choice object.
 let li = "";
 
-shortAnswer.prototype = Object.create(questions.prototype);
-multiChoice.prototype = Object.create(questions.prototype);
+shortAnswer.prototype = Object.create(quesBase.prototype);
+multiChoice.prototype = Object.create(quesBase.prototype);
 
 function multiChoice (question, answer , choices, correct) {
-	questions.call(this, question, answer)
-	this.choices = choices;
+	quesBase.call(this, question, answer, choices)
 	this.correct = correct;
 
 	this.showInfo = function (){
- 		let source = document.querySelector('#questions').innerHTML;
+ 		let source = document.querySelector('#set').innerHTML;
  		let template = Handlebars.compile(source);
  		let html = template(this);
 		document.querySelector('.insert').insertAdjacentHTML('beforeend', html);
- 		document.querySelector('.insert').innerHTML = html;
- 		document.querySelector('.insert div:last-of-type ul').addEventListener('click', this.isCorrect.bind(this));
+ // 		document.querySelector('.insert').innerHTML = html;
+ // 		document.querySelector('.insert div:last-of-type ul').addEventListener('click', this.isCorrect.bind(this));
 	}
 		this.isCorrect = function (event) {
 			let li = event.target
@@ -29,32 +28,32 @@ function multiChoice (question, answer , choices, correct) {
 }
 
 
-function questions (question, answer){
+function quesBase (question, answer, choices){
 	this.question = question;
 	this.answer = answer;
+	this.choices = choices
 }
 
-function shortAnswer(question, answer , text) {
-	questions.call(this, question, answer);
-	this.text = text;
+function shortAnswer(question, answer , choices) {
+	quesBase.call(this, question, answer, choices);
 	this.showInfo = function (){
- 		let source = document.querySelector("#questions").innerHTML;
+ 		let source = document.querySelector("#set").innerHTML;
  		let template = Handlebars.compile(source);
  		let html = template(this);
- 		document.querySelector('.insert').insertAdjacentHTML('beforeend', html);
-		document.querySelector('.insert div:last-of-type ul').addEventListener('click', this.isCorrect.bind(this));
+		document.querySelector('.insert').innerHTML = html;
+		// document.querySelector('.insert').insertAdjacentHTML('beforeend', html)
+		document.querySelector('.insert div:last-of-type ul')//.addEventListener('click', this.isCorrect.bind(this));
 
 	}
 }
-shortAnswer.prototype = Object.create(questions.prototype);
-multiChoice.prototype = Object.create(questions.prototype);
 
-let q1 = new shortAnswer ('How many is alive?', "None", "The bus was traveling at 1000 miles per hour and flipped")
+let q1 = new shortAnswer ('Bus is traveling at a 1000mph and crashes. How many is alive?', "None", ['True' , 'False'])
  console.log(q1);
+ q1.showInfo()
 let q2 = new multiChoice("You are the bus driver, what color are the bus driver's eyes?", "Brown", ["Red", "Yellow", "Black", "Brown"], "idk")
  console.log(q2)
-q1.showInfo()
-// [q1, q2 ].forEach(question => question.showInfo());
+q2.showInfo()
+// [q1, q2 ].forEach(pickles => pickles.showInfo());
 
 
 // this.showInfo = function (){

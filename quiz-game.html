@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jeopardy</title>
+	<link rel="stylesheet" type="text/css" href="quiz-game.css">
+</head>
+<body>
+<!-- <section id="pageOne" class="page one">
+	<header id="welcome"> Welcome to Jeopardy </header>
+	<p class="name"> Please Enter Your Name.</p>
+	<input id="nameInput" class="nameInput" type="text" value=""> 
+	<div id="enter">
+		<button id="btn" onclick="userName()">Enter</button>
+		<button id="next" onclick="pageTwo()"> Press this to Continue </button>
+	</div>
+</section>
+		<p>  <span id="userName" class="username"> </span> </p> -->
+<!-- This is the second page that is hidden until a click event happens -->
+<section id="secondPage" class="page dos">
+	<!-- Where the information is going for the categories -->
+	<div class="categories"> </div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
+	<script class="game" type="text/x-handlebars-template">
+		<div id={{id}} class="entry">
+			<p id="player" class="player"> </p>
+			<p id="category" class="category"> Category {{category}}</p>
+	    	<p id={{value}} class="value">  Worth {{value}} </p>
+   	   	</div>
+   	   	<p id="question" class="question"> Question:{{question}}</p>
+	</script>
+</section>
+<script src="quiz-game.js"></script>
+</body>
+</html>
