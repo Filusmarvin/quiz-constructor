@@ -33,7 +33,7 @@ header{
 	display: flex;
 }
 
-#btn{	
+#btn{
     margin-left: 684px;
     position: absolute;
     width: 82px;
@@ -53,7 +53,7 @@ header{
 
 
 /* The 3 category boxes */
- 
+
 
  /*#secondPage{
  	display: none;
@@ -62,7 +62,7 @@ header{
  .username{
  	font-size: 30px;
  }
- 
+
 .categories{
 	display: flex;
 	justify-content: space-around;
@@ -89,5 +89,14 @@ header{
 }
 
 #answerSection{
+	display: none;
+}
+
+
+
+
+
+
+.question {
 	display: none;
 }

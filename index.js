@@ -49,9 +49,4 @@ function Question (question, rightAnswer, choices){
 			document.querySelector('.test').insertAdjacentHTML('beforeend', html);
   	  document.querySelector('.test div:last-of-type ul').addEventListener('click', this.answer.bind(this));
 	}
-
 }
-
-// var q1 = new quiz('To write JS what tags would you need?', "script" , ['title' , 'head' , 'li' , "script"]);
-// var q2 = new quiz("to do this assignment what do you need?","knowledge", ['gratitude', 'magnitude', 'aptitude', 'knowledge']);
-// [q1, q2 ].forEach(question => question.showInfo());
